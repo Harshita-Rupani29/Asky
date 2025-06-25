@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 const userRoutes = require("./routes/user-routes");
 const questionRoutes = require("./routes/question-routes");
 const answerRoutes = require("./routes/answer-routes");
-
+const httpError = require("./models/http-error");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,9 +19,9 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "build")));
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
-app.use("/api/users", userRoutes);
-app.use("/api/answer", answerRoutes);
-app.use("/api/questions", questionRoutes);
+app.use("/users", userRoutes);
+app.use("/answer", answerRoutes);
+app.use("/questions", questionRoutes);
 
 app.use((req, res, next) => {
   const error = new httpError("Could not find this route", 404);

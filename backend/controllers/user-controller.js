@@ -13,6 +13,7 @@ const {
 } = require("../validator/userValidator");
 
 const signup = async (req, res, next) => {
+  console.log("📦 Incoming data:", req.body);
   const {
     firstName,
     lastName,
@@ -29,7 +30,7 @@ const signup = async (req, res, next) => {
 
   const { error } = signupValidator(req.body);
   if (error) {
-    console.log(error.details[0].message);
+    console.log("❌ Joi validation error:", error.details[0].message); // 👈 log clearly
     return next(new HttpError(error.details[0].message, 422));
   }
 
