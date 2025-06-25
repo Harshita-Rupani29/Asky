@@ -1,18 +1,16 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import Login from './pages/Login';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Home from './pages/Home';
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 function App() {
   return (
     <>
-      <header style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
-        <h1>QandA Hub</h1>
-        <nav>
-          <Link to="/login">Login</Link>
-        </nav>
-      </header>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+         <Route path="/login" element={<Login />} />
+           <Route path="/signup" element={<SignUp />} />
       </Routes>
     </>
   );
