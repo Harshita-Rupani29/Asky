@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import LoginSignUpIllustration from "../components/LoginSignUpIllustration";
 import { AuthContext } from "../utils/context-API";
 import useHttp from "../utils/hooks/http-hook";
-import Loader from "../components/Loader"; // Import your Loader component
+import Loader from "../components/Loader"; 
 
 const Login = () => {
   const navigate = useNavigate();
