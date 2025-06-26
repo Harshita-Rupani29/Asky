@@ -1,4 +1,4 @@
-const LoginSignUpillustration=()=>{
+const LoginSignUpIllustration=()=>{
   return (
     <div className="w-full max-w-xl">
           <img
@@ -9,4 +9,4 @@ const LoginSignUpillustration=()=>{
         </div>
   );
 }
-export default LoginSignUpillustration;
+export default LoginSignUpIllustration;

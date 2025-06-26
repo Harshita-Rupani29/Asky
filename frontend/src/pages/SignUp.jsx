@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/footer";
-import LoginSignUpIllustration from "../components/image";
+import Footer from "../components/Footer";
+import LoginSignUpIllustration from "../components/LoginSignUpIllustration";
 
 const Signup = () => {
   const navigate = useNavigate();

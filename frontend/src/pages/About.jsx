@@ -1,6 +1,6 @@
 import React from "react";
 import Headrer from "../components/Header";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { FaLinkedin } from "react-icons/fa";
 
 const AboutPage = () => {
@@ -39,7 +39,7 @@ const AboutPage = () => {
           <h2 className="text-3xl font-semibold text-center text-gray-800 mb-10">
             Platform Highlights
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 " style={{cursor:"pointer"}}>
             {[
               { icon: "💬", title: "Interactive Q&A", text: "Ask thoughtful questions and receive well-structured answers." },
               { icon: "🏆", title: "Vote & Rank", text: "Help highlight the best responses by upvoting insightful answers." },

@@ -19,9 +19,9 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "build")));
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
-app.use("/users", userRoutes);
-app.use("/answer", answerRoutes);
-app.use("/questions", questionRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/answer", answerRoutes);
+app.use("/api/questions", questionRoutes);
 
 app.use((req, res, next) => {
   const error = new httpError("Could not find this route", 404);

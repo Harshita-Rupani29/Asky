@@ -1,5 +1,3 @@
-import React from "react";
-
 const LandingWhy = () => {
   return (
     <div className="w-full mt-8 text-center text-[#2e3d49]">

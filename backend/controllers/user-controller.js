@@ -30,7 +30,7 @@ const signup = async (req, res, next) => {
 
   const { error } = signupValidator(req.body);
   if (error) {
-    console.log("❌ Joi validation error:", error.details[0].message); // 👈 log clearly
+    console.log(" Joi validation error:", error.details[0].message);
     return next(new HttpError(error.details[0].message, 422));
   }
 
