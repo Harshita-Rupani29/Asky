@@ -1,168 +1,151 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaUser, FaEnvelope, FaLock, FaMobileAlt, FaGraduationCap } from "react-icons/fa";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Footer from "../components/footer";
+import LoginSignUpIllustration from "../components/image";
 
-export default function Signup() {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    level: "",
-    mobileNumber: "",
-  });
+const Signup = () => {
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", form);
+    console.log("Signing up...");
+    navigate("/questions");
   };
-
-  const inputClass =
-    "w-full pl-10 pr-3 py-2 border border-gray-300 rounded bg-white text-sm focus:outline-none";
-
-  const iconStyle = "absolute left-3 top-2.5 text-gray-400";
 
   return (
-    <div className="min-h-screen bg-[#f9fafb] flex justify-center items-center px-4 py-12">
-      <div className="flex w-full max-w-5xl bg-white border border-gray-200 rounded-md shadow-sm overflow-hidden">
-        {/* Left Image */}
-        <div className="hidden md:flex items-center justify-center w-1/2 bg-[#f0f4f8] p-6">
-          <img
-            src="/SignUp.png"
-            alt="Sign up"
-            className="w-60 h-60 object-contain"
-          />
-        </div>
+    <div className="min-h-screen flex flex-col justify-between bg-white px-6">
+      <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-16 flex-grow">
+        {/* Illustration Left */}
+        <LoginSignUpIllustration />
 
-        {/* Right Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="w-full md:w-1/2 p-8 space-y-4"
-        >
-          <h2 className="text-2xl font-semibold text-gray-800 text-center">
-            Sign up
+        {/* Signup Form */}
+        <div className="w-full max-w-md">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-10 text-center">
+            Join QA Hub today!
           </h2>
-          <p className="text-sm text-gray-500 text-center">
-            Join our Q&A community today
-          </p>
 
-          <div className="flex gap-4">
-            <div className="relative w-1/2">
-              <FaUser className={iconStyle} />
+          <form onSubmit={handleSignup} className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                First name
+              </label>
               <input
                 type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={form.firstName}
-                onChange={handleChange}
+                placeholder="Amelia"
                 required
-                className={inputClass}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <div className="relative w-1/2">
-              <FaUser className={iconStyle} />
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Last name
+              </label>
               <input
                 type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={form.lastName}
-                onChange={handleChange}
+                placeholder="Lara"
                 required
-                className={inputClass}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-          </div>
 
-          <div className="relative">
-            <FaEnvelope className={iconStyle} />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className={inputClass}
-            />
-          </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Mobile number
+              </label>
+              <input
+                type="tel"
+                placeholder="8902345678"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-          <div className="flex gap-4">
-            <div className="relative w-1/2">
-              <FaLock className={iconStyle} />
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="laraa2@email.com"
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
               <input
                 type="password"
-                name="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange}
+                placeholder="********"
                 required
-                className={inputClass}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <div className="relative w-1/2">
-              <FaLock className={iconStyle} />
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Confirm password
+              </label>
               <input
                 type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={form.confirmPassword}
-                onChange={handleChange}
+                placeholder="********"
                 required
-                className={inputClass}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-          </div>
 
-          <div className="relative">
-            <FaGraduationCap className={iconStyle} />
-            <select
-              name="level"
-              value={form.level}
-              onChange={handleChange}
-              required
-              className={inputClass}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Level
+              </label>
+              <select
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select level</option>
+                <option value="primary">Primary School</option>
+                <option value="secondary">Secondary School</option>
+                <option value="university">University</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold text-lg hover:bg-blue-700 transition"
             >
-              <option value="">Select Level</option>
-              <option value="primary">Primary</option>
-              <option value="secondary">Secondary</option>
-              <option value="college/university">College/University</option>
-              <option value="others">Others</option>
-            </select>
-          </div>
+              Signup
+            </button>
+          </form>
 
-          <div className="relative">
-            <FaMobileAlt className={iconStyle} />
-            <input
-              type="tel"
-              name="mobileNumber"
-              placeholder="Mobile Number"
-              value={form.mobileNumber}
-              onChange={handleChange}
-              required
-              className={inputClass}
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full py-2 text-sm font-medium bg-green-200 hover:bg-green-300 text-gray-800 rounded"
-          >
-            Sign Up
-          </button>
-
-          <p className="text-sm text-center text-gray-600">
+          <div className="text-center mt-6 text-sm text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="text-green-600 hover:underline">
+            <span
+              onClick={() => navigate("/login")}
+              className="text-blue-600 hover:underline cursor-pointer"
+            >
               Login
-            </Link>
-          </p>
-        </form>
+            </span>
+          </div>
+
+          <div className="text-center mt-2 text-sm text-gray-600">
+            Don’t want to Signup?{" "}
+            <span
+              onClick={() => navigate("/questions")}
+              className="text-blue-600 hover:underline cursor-pointer"
+            >
+              Continue as guest
+            </span>
+          </div>
+        </div>
       </div>
+
+      {/* Footer at the bottom */}
+      <Footer />
     </div>
   );
-}
+};
+
+export default Signup;
