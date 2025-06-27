@@ -38,7 +38,9 @@ const Card = ({ data, questionStateHandler }) => {
   const [showSharePopup, setShowSharePopup] = useState(false);
 
   const cardOptionsRef = useRef(null);
-  const imageURL = `${import.meta.env.VITE_ASSETS_URL}${questionImage}`;
+  const normalizedImagePath = questionImage.replace(/\\/g, '/'); 
+const imageURL = `${import.meta.env.VITE_ASSETS_URL}/${normalizedImagePath}`;
+  
   const profileImage = `${import.meta.env.VITE_ASSETS_URL}${author.profile_image}`;
   const shareUrl = `${import.meta.env.VITE_APP_URL}/question/${id}`;
 

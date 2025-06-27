@@ -51,7 +51,7 @@ function App() {
             <Route path="/askAi" element={<AiChatbot />} />
             <Route path="/about" element={<AboutPage />} />
              <Route path="/questions" element={<Question />} />
-            <Route path="/newQuestion" element={<PrivateRoute><AskQuestion /></PrivateRoute>} />
+            <Route path="/ask" element={<PrivateRoute><AskQuestion /></PrivateRoute>} />
           
           </Routes>
         
