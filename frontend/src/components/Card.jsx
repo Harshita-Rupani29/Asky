@@ -42,7 +42,7 @@ const Card = ({ data, questionStateHandler }) => {
 const imageURL = `${import.meta.env.VITE_ASSETS_URL}/${normalizedImagePath}`;
   
   const profileImage = ('assets/avatar.webp')
-  const shareUrl = `${import.meta.env.VITE_APP_URL}/question/${id}`;
+  // const shareUrl = `${import.meta.env.VITE_APP_URL}/question/${id}`;
 
   useEffect(() => {
     if (author._id === userId) setIsMine(true);
