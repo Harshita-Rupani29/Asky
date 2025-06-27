@@ -7,9 +7,15 @@ const Header = () => {
 
   return (
     <header className="w-full bg-gray-100 px-6 py-3 flex items-center justify-between shadow-sm">
-      <div className="flex items-center space-x-2">
-        {/* Add your logo here if needed */}
-      </div>
+     
+      
+<div className="flex items-center space-x-3 p-3 bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300">
+  <img src="/assets/try.jpg" alt="Sokovia logo" className="h-12 w-12 object-contain rounded-md" />
+  <span className="text-lg font-semibold text-gray-800">Sokovia</span>
+</div>
+
+
+
 
       <nav className="flex space-x-8 text-sm font-medium">
         <Link
