@@ -299,13 +299,26 @@ const updateProfile = async (req, res, next) => {
     user.email = email;
     user.level = level;
     user.mobileNumber = mobileNumber;
-    user.profile_image = req.file?.path || "";
+
+    // --- CHANGE STARTS HERE ---
+    if (req.file?.path) {
+      // Replace backslashes with forward slashes for URL compatibility
+      user.profile_image = req.file.path.replace(/\\/g, "/");
+    } else {
+      // If no new file is uploaded, keep the existing image or set to default/empty
+      // Depending on your logic, you might want to preserve the old image if no new one is provided
+      // For now, let's assume if no new file, we don't change the path unless it was previously empty
+      // If you intend to allow clearing the image, you'd handle it differently (e.g., specific flag from frontend)
+      // For this specific issue, if req.file is not present, we should probably not overwrite an existing image path.
+      // Or, if frontend sends a signal to clear, then user.profile_image = '';
+    }
+    // --- CHANGE ENDS HERE ---
 
     try {
       await user.save();
     } catch (err) {
       const error = new HttpError(
-        "Could not update user profile, please try again!",
+        "Could not update user profile, please try again!" + err.message, // Include err.message for more detail
         500
       );
       return next(error);
@@ -313,10 +326,12 @@ const updateProfile = async (req, res, next) => {
 
     res.json({
       message: "User profile updated successfully.",
+      // Optionally send back the new image path if needed for immediate frontend update
+      profileImage: user.profile_image,
     });
   } catch (err) {
     const error = new HttpError(
-      "Could not update user profile, please try again",
+      "Could not update user profile, please try again: " + err.message, // Include err.message for more detail
       500
     );
     return next(error);

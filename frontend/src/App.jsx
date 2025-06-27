@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "react-scroll-to-top";
 import { AuthContext } from "./utils/context-API";
 import useAuth from "./utils/hooks/Auth-hook";
-
+import SingleQuestionPage from "./pages/SingleQuestion";
 import Login from './pages/Login';    
 import Signup from './pages/SignUp'; 
 import Home from './pages/Home';
@@ -16,7 +16,8 @@ import "react-toastify-modernize/dist/ReactToastify.css";
 import Question from "./pages/Question";
 import PrivateRoute from "./utils/PrivateRoute";
 import RedirectLoggedIn from "./utils/RedirectLoggedIn";
-
+import Profile from "./pages/Profile";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const { userId, token, login, logout } = useAuth();
@@ -45,14 +46,15 @@ function App() {
             <Route path="/login" element={<RedirectLoggedIn><Login /></RedirectLoggedIn>} />
 
             <Route path="/signup" element={<RedirectLoggedIn><Signup /></RedirectLoggedIn>} />
-
+              <Route path="*" element={<ErrorPage />} />
+               <Route path="/question/:questionId" element={<SingleQuestionPage />} />
             {/* Other public pages */}
             <Route path="/home" element={<Home />} /> 
             <Route path="/askAi" element={<AiChatbot />} />
             <Route path="/about" element={<AboutPage />} />
              <Route path="/questions" element={<Question />} />
             <Route path="/ask" element={<PrivateRoute><AskQuestion /></PrivateRoute>} />
-          
+            <Route path="/profile" element={<PrivateRoute><Profile></Profile></PrivateRoute>} />
           </Routes>
         
       </AuthContext.Provider>

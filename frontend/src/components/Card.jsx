@@ -41,7 +41,7 @@ const Card = ({ data, questionStateHandler }) => {
   const normalizedImagePath = questionImage.replace(/\\/g, '/'); 
 const imageURL = `${import.meta.env.VITE_ASSETS_URL}/${normalizedImagePath}`;
   
-  const profileImage = `${import.meta.env.VITE_ASSETS_URL}${author.profile_image}`;
+  const profileImage = ('assets/avatar.webp')
   const shareUrl = `${import.meta.env.VITE_APP_URL}/question/${id}`;
 
   useEffect(() => {
