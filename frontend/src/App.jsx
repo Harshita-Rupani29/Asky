@@ -13,7 +13,7 @@ import AskQuestion from './pages/AskQuestion';
 import AiChatbot from './pages/AIChatbot';
 import AboutPage from './pages/About';
 import "react-toastify-modernize/dist/ReactToastify.css";
-
+import Question from "./pages/Question";
 import PrivateRoute from "./utils/PrivateRoute";
 import RedirectLoggedIn from "./utils/RedirectLoggedIn";
 
@@ -50,7 +50,7 @@ function App() {
             <Route path="/home" element={<Home />} /> 
             <Route path="/askAi" element={<AiChatbot />} />
             <Route path="/about" element={<AboutPage />} />
-
+             <Route path="/questions" element={<Question />} />
             <Route path="/newQuestion" element={<PrivateRoute><AskQuestion /></PrivateRoute>} />
           
           </Routes>

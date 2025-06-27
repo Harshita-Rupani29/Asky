@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../utils/context-API";
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-  };
+    const { isLoggedIn, logout } = useContext(AuthContext);
+  
 
   return (
     <header className="w-full bg-gray-100 px-6 py-3 flex items-center justify-between shadow-sm">
@@ -58,7 +55,7 @@ const Header = () => {
               Profile
             </Link>
             <button
-              onClick={handleLogout}
+              onClick={logout}
               className="bg-white border border-gray-300 text-black hover:text-white text-sm px-4 py-2 rounded hover:bg-gray-800 transition duration-200"
             >
               Logout

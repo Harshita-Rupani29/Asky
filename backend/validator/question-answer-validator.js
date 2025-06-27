@@ -21,6 +21,7 @@ const answerValidator = (answer) => {
   const schema = Joi.object({
     content: Joi.string().min(3).max(3000).required(),
   });
+  return schema.validate(answer);
 };
 
 module.exports = {

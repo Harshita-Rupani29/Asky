@@ -10,6 +10,9 @@ const {
 } = require("../validator/question-answer-validator.js");
 
 const postAnswer = async (req, res, next) => {
+  console.log("--- Inside postAnswer ---");
+  console.log("req.body:", req.body);
+  console.log("req.body.content:", req.body.content);
   const { error } = answerValidator(req.body);
   if (error) {
     return next(new HttpError(error.details[0].message, 422));

@@ -12,9 +12,9 @@ const {
   singleQuestion,
 } = questionController;
 
-const checkAuth = require("../middleware/check-auth");
+// const checkAuth = require("../middleware/check-auth");
 
-Router.use(checkAuth);
+// Router.use(checkAuth);
 Router.post("/:UID", fileUpload.single("image"), newQuestion);
 Router.get("/save/:QID/:UID", saveQuestion);
 Router.get("/single/:QID", singleQuestion);
