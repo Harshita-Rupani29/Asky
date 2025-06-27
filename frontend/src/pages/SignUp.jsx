@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import LoginSignUpIllustration from "../components/LoginSignUpIllustration";
 import { AuthContext } from "../utils/context-API";
 import useHttp from "../utils/hooks/http-hook";

@@ -1,6 +1,6 @@
 import React from "react";
 import Headrer from "../components/Header";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import { FaLinkedin } from "react-icons/fa";
 
 const AboutPage = () => {

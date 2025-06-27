@@ -206,7 +206,6 @@ const imageURL = `${import.meta.env.VITE_ASSETS_URL}/${normalizedImagePath}`;
         )}
       </div>
 
-      {/* Footer */}
       <div className="flex justify-around my-4">
         <span className="flex items-center cursor-pointer" onClick={toggleAnswer}>
           <MdOutlineInsertComment className="mr-1" />

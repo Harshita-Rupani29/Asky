@@ -4,7 +4,7 @@ import useHttp from "../utils/hooks/http-hook";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../utils/context-API";
 import { toast } from "react-toastify";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import Header from "../components/Header";
 import Loader from "../components/Loader";
 
