@@ -10,8 +10,7 @@ import Loader from "./Loader";
 const EditProfile = ({ data }) => {
   const { isLoading, error, sendRequest, clearError } = useHttp();
   const navigate = useNavigate();
-  // Destructure userId AND token from AuthContext
-  const { userId, token } = useContext(AuthContext); // <--- Add token here
+  const { userId, token } = useContext(AuthContext); 
   const {
     register,
     handleSubmit,
@@ -28,15 +27,13 @@ const EditProfile = ({ data }) => {
 
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(() => {
-    // Safely handle image preview if data.profile_image is not initially available or has backslashes
     if (data.profile_image) {
       const normalizedPath = data.profile_image.replace(/\\/g, '/');
       return `${import.meta.env.VITE_ASSETS_URL}/${normalizedPath}`;
     }
-    return "https://th.bing.com/th?id=OIP.JBpgUJhTt8cI2V05-Uf53AHaG1"; // Default fallback image
+    return "https://th.bing.com/th?id=OIP.JBpgUJhTt8cI2V05-Uf53AHaG1"; 
   });
 
-  // Effect to update image preview if data.profile_image changes (e.g., after initial load)
   useEffect(() => {
     if (data.profile_image) {
       const normalizedPath = data.profile_image.replace(/\\/g, '/');
@@ -51,14 +48,13 @@ const EditProfile = ({ data }) => {
     if (file) {
       setImagePreview(URL.createObjectURL(file));
     } else {
-      // Revert to original profile image or default if file is cleared
       const originalPath = data.profile_image ? data.profile_image.replace(/\\/g, '/') : '';
       setImagePreview(originalPath ? `${import.meta.env.VITE_ASSETS_URL}/${originalPath}` : "https://th.bing.com/th?id=OIP.JBpgUJhTt8cI2V05-Uf53AHaG1");
     }
   };
 
   const onSubmit = async (formData) => {
-    // Check if userId and token are available before proceeding
+    
     if (!userId || !token) {
       toast.info("Please login to update your profile!");
       return;
@@ -76,16 +72,16 @@ const EditProfile = ({ data }) => {
       await sendRequest(
         `${import.meta.env.VITE_BACKEND_URL}/api/users/me/${userId}`,
         "PATCH",
-        requestData, // FormData is sent directly as the body
+        requestData,
         {
-          // No Content-Type header needed for FormData; browser sets it automatically
-          'Authorization': 'Bearer ' + token // <--- THIS IS THE KEY CHANGE
+          
+          'Authorization': 'Bearer ' + token 
         }
       );
-      navigate("/questions"); // Navigate after successful update
+      navigate("/questions");
       toast.success("Profile Updated!");
     } catch (e) {
-      // The error should now be caught by useHttp and re-thrown with a message
+    
       toast.error(e.message || "Failed to update profile. Please try again.");
       console.error("Edit profile submission error:", e);
     }
@@ -115,7 +111,7 @@ const EditProfile = ({ data }) => {
           <label htmlFor="profileImagePicker" className="cursor-pointer inline-block">
             <div className="w-28 h-28 border-2 border-gray-300 rounded-full overflow-hidden flex items-center justify-center">
               <img
-                src={imagePreview} // Use the imagePreview state
+                src={imagePreview} 
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -123,9 +119,6 @@ const EditProfile = ({ data }) => {
             <div className="text-center text-gray-500 mt-2 text-sm">Upload Image</div>
           </label>
         </div>
-
-        {/* Form fields: First Name, Last Name, Email, Level, Mobile Number */}
-        {/* ... (your existing form fields and validation) ... */}
 
         <button
           type="submit"

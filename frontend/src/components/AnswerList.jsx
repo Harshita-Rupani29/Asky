@@ -1,6 +1,5 @@
 
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import BackDrop from "./BackDrop";
 import AnswerCard from "./AnswerCard";
 import ClipLoader from "react-spinners/ClipLoader";
 import { toast } from "react-toastify";
