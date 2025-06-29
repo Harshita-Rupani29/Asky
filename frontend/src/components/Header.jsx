@@ -65,7 +65,7 @@ const Header = () => {
         logout={logout}
       />
 
-      {isSideBarOpen && <BackDrop onClick={() => setIsSideBarOpen(false)} />}
+      {isSideBarOpen}
     </>
   );
 };

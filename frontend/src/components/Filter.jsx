@@ -58,7 +58,7 @@ function FilterOptions({
         </button>
       </div>
 
-      {isFilterMobile && <BackDrop onClick={() => setIsFilterMobile(false)} />}
+      {isFilterMobile}
 
       {/* Filter Panel */}
       <div
